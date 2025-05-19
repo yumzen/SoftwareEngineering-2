@@ -25,7 +25,7 @@
 | Use Case | Actor Action | System Response |
 | --- | --- | --- |
 | 자전거 대여 | 1. 회원은 대여할 자전거의 대여 버튼을 클릭한다. | 2. 대여 완료 메세지를 출력한다. |
-ㄴ
+
 ### Use case description: 자전거 대여 정보 조회
 | Use Case | Actor Action | System Response |
 | --- | --- | --- |
