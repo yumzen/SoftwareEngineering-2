@@ -1,0 +1,7 @@
+[yumzen] Tue May 20 00:28:02 2025 +0900 Analysis Class Diagram 작성 70ac40c
+[yumzen] Tue May 20 00:27:54 2025 +0900 Communication diagram 작성 24c390d
+[yumzen] Tue May 20 00:22:29 2025 +0900 requirementList 수정 2f7737a
+[yumzen] Mon May 19 19:47:07 2025 +0900 use case description 작성 67eccc2
+[yumzen] Mon May 19 19:46:11 2025 +0900 usecase diagram 작성 bfb90a4
+[yumzen] Mon May 19 19:45:57 2025 +0900 requirementList 작성 70d02cd
+[yumzen] Mon May 19 19:45:39 2025 +0900 requirementList 작성 1a53f44
