@@ -1,3 +1,6 @@
+[yumzen] Tue May 20 11:47:11 2025 +0900 AnalysisClassDiagram 수정 ee58b79
+[yumzen] Tue May 20 11:46:45 2025 +0900 CommunicationDiagram 수정 416f678
+[yumzen] Tue May 20 01:01:10 2025 +0900 log_output 재추출 9a334b5
 [Jieun Yeom] Tue May 20 01:00:03 2025 +0900 Usecase Description 수정 90956d1
 [yumzen] Tue May 20 00:57:21 2025 +0900 log_output 추출 ef9e480
 [yumzen] Tue May 20 00:28:02 2025 +0900 Analysis Class Diagram 작성 70ac40c
