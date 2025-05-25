@@ -1,4 +1,5 @@
 #include "SignupUI.h"
+#include "WriteFile.h"
 #include <sstream>
 #include <iostream>
 
@@ -7,7 +8,7 @@ using namespace std;
 SignupUI::SignupUI(Signup& signup) : signup(signup) {}
 
 void SignupUI::startInterface() {
-    cout << "1.1. 회원가입" << endl;
+    writeFile("1.1. 회원가입");
 }
 
 void SignupUI::signupWithUserInfo(string userInfo) {
@@ -16,5 +17,5 @@ void SignupUI::signupWithUserInfo(string userInfo) {
     ss >> id >> password >> phoneNumber;
 
     auto result = signup.signup(id, password, phoneNumber);
-    cout << "> " << get<0>(result) << " " << get<1>(result) << " " << get<2>(result) << endl;
+    writeFile("> " + get<0>(result) + " " + get<1>(result) + " " + get<2>(result));
 }

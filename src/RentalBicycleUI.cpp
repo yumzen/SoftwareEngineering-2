@@ -1,8 +1,9 @@
 #include "RentalBicycleUI.h"
 #include "RentalBicycle.h"
+#include "WriteFile.h"
 
 void RentalBicycleUI::startInterface() {
-    cout << "4.1 자전거 대여" << endl;
+    writeFile("4.1. 자전거 대여");
 }
 
 void RentalBicycleUI::rentalBicycleUI(string bicycleId) {
@@ -10,5 +11,5 @@ void RentalBicycleUI::rentalBicycleUI(string bicycleId) {
     string id;
     ss >> id;
     string result = rentalBicycle.rentalBicycle(id);
-    cout << result << endl;
+    writeFile("> " + result);
 }

@@ -2,6 +2,7 @@
 
 #include <string>
 #include "Signup.h"  // Signup 선언 필요
+#include <fstream>
 
 class SignupUI {
 private:

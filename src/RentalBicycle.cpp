@@ -23,5 +23,5 @@ string RentalBicycle::rentalBicycle(const string& bicycleId) {
     userSession->getCurrentUser()->rentalBicycle(bicycle);
     RentalBicycle* rentalBicycle = new RentalBicycle(userSession, bicycleCollection);
 
-    return bicycleId;
+    return bicycle->getBicycleDetails();
 }

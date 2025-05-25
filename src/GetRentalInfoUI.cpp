@@ -1,16 +1,17 @@
 #include "GetRentalInfoUI.h"
 #include "Bicycle.h"
+#include "WriteFile.h"
 
 void GetRentalInfoUI::startInterface() {
-    cout << "4.2 대여한 자전거 목록 조회" << endl;
+    writeFile("5.1 자전거 대여 리스트");
 
-    vector<Bicycle*> list = getRentalInfo.getRentalBicycleList();
+vector<Bicycle*> list = getRentalInfo.getRentalBicycleList();
     if (list.empty()) {
         cout << "현재 대여 중인 자전거가 없습니다." << endl;
         return;
     }
 
     for (Bicycle* b : list) {
-        cout << "> " << b->getBicycleDetails() << endl;
+        writeFile("> " + b->getBicycleDetails());
     }
 }

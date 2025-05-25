@@ -18,7 +18,11 @@ void User::rentalBicycle(Bicycle* bicycle) {
 }
 
 vector<Bicycle*> User::getRentalBicycleList() const {
-    return rentalBicycleList;
+    vector<Bicycle*> sortedList = rentalBicycleList;
+    sort(sortedList.begin(), sortedList.end(), [](Bicycle* a, Bicycle* b) {
+        return a->getBicycleDetails() < b->getBicycleDetails();
+    });
+    return sortedList;
 }
 
 User User::createAdminUser() {

@@ -2,13 +2,12 @@
 #include "RegisterBicycle.h"
 #include <sstream>
 #include <fstream>
-
-extern ofstream outputFile;
+#include "WriteFile.h"
 
 RegisterBicycleUI::RegisterBicycleUI(RegisterBicycle& rb) : registerBicycle(rb) {}
 
 void RegisterBicycleUI::startInterface() {
-    cout << "3.1. 자전거 등록" << endl;
+    writeFile("3.1. 자전거 등록");
 }
 
 void RegisterBicycleUI::registerBicycleUI(const string& input) {
@@ -18,5 +17,5 @@ void RegisterBicycleUI::registerBicycleUI(const string& input) {
 
     string result = registerBicycle.registerBicycle(id, manufacturer);
 
-    cout << "> " << result << endl;
+    writeFile("> "+ result);
 }

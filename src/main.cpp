@@ -18,16 +18,15 @@
 #include "GetRentalInfoUI.h"
 #include "UserCollection.h"
 #include "BicycleCollection.h"
+#include "WriteFile.h"
 
 using namespace std;
 
 // 상수
 #define INPUT_FILE_NAME "input.txt"
-#define OUTPUT_FILE_NAME "output.txt"
 
 // 전역 입출력 스트림
 ifstream inputFile(INPUT_FILE_NAME);
-ofstream outputFile(OUTPUT_FILE_NAME);
 
 // 전역 세션 객체
 UserSession userSession;
@@ -41,7 +40,6 @@ void exitProgram();
 int main() {
     runProgram();
     inputFile.close();
-    outputFile.close();
     return 0;
 }
 
@@ -56,7 +54,6 @@ void runProgram() {
     userCollection.addNewUser(admin);
 
     while (isRunning && getline(inputFile, line)) {
-        cout<<endl;
         if (line.length() >= 3) {
             mainMenu = line[0] - '0';
             subMenu = line[2] - '0';
@@ -70,6 +67,7 @@ void runProgram() {
 
                         signupUI.startInterface();
                         signupUI.signupWithUserInfo(input);
+                        writeFile("");
                     }
                     break;
 
@@ -79,12 +77,14 @@ void runProgram() {
                         SigninUI signinUI(signin);
                         signinUI.startInterface();
                         signinUI.signinWithUserInfo(input);
+                        writeFile("");
 
                     } else if (subMenu == 2) {
                         Signout signout(&userSession);
                         SignoutUI signoutUI(signout);
                         signoutUI.startInterface();
                         signoutUI.signoutUI();
+                        writeFile("");
                     }
                     break;
 
@@ -95,6 +95,7 @@ void runProgram() {
                         RegisterBicycleUI registerBicycleUI(registerBicycle);
                         registerBicycleUI.startInterface();
                         registerBicycleUI.registerBicycleUI(input);
+                        writeFile("");
                     }
                     break;
 
@@ -105,6 +106,7 @@ void runProgram() {
                         RentalBicycleUI rentalBicycleUI(RentalBicycle);
                         rentalBicycleUI.startInterface();
                         rentalBicycleUI.rentalBicycleUI(input);
+                        writeFile("");
                 
                     }
                     break;
@@ -113,6 +115,7 @@ void runProgram() {
                         GetRentalInfo getRentalInfo(&userSession);
                         GetRentalInfoUI getRentalInfoUI(getRentalInfo);
                         getRentalInfoUI.startInterface();
+                        writeFile("");
                     }
                     break;
 
@@ -129,5 +132,5 @@ void runProgram() {
 }
 
 void exitProgram() {
-    outputFile << "6.1. 종료" << endl;
+    writeFile("6.1. 종료");
 }

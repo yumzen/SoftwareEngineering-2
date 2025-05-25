@@ -1,5 +1,6 @@
 #pragma once
 #include <string>
+#include <fstream>
 #include "Signout.h"
 using namespace std;
 
