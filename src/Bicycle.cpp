@@ -1,11 +1,11 @@
 #include "Bicycle.h"
 
-Bicycle::Bicycle(string id, string type) : id(id), type(type), bicycleStatus(false) {}
+Bicycle::Bicycle(string id, string productName) : id(id), bicycleStatus(false), productName(productName){}
 
 void Bicycle::setBicycleStatus(bool status) {
     bicycleStatus = status;
 }
 
 string Bicycle::getBicycleDetails() const {
-    return "ID: " + id + ", Type: " + type + ", Status: " + (bicycleStatus ? "Available" : "Unavailable");
+    return "ID: " + id ;
 }

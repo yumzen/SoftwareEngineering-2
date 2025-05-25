@@ -8,10 +8,10 @@ using namespace std;
 class Bicycle {
 protected:
     string id;
-    string type;
     bool bicycleStatus;
+    string productName;
 public:
-    Bicycle(string id, string type);
+    Bicycle(string id, string productName);
     void setBicycleStatus(bool status);
     string getBicycleDetails() const;
 };

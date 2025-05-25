@@ -11,6 +11,12 @@ string User::getRole() const {
     return role == ADMIN ? "admin" : "general";
 }
 
+void User::rentalBicycle(Bicycle* bicycle) {
+    if (bicycle != nullptr) {
+        rentalBicycleList.push_back(bicycle);
+    }
+}
+
 vector<Bicycle*> User::getRentalBicycleList() const {
     return rentalBicycleList;
 }

@@ -10,10 +10,12 @@
 #include "SigninUI.h"
 #include "Signout.h"
 #include "SignoutUI.h"
+#include "RegisterBicycle.h"
 #include "RegisterBicycleUI.h"
 #include "RentalBicycleUI.h"
 #include "GetRentalInfoUI.h"
 #include "UserCollection.h"
+#include "BicycleCollection.h"
 
 using namespace std;
 
@@ -28,6 +30,7 @@ ofstream outputFile(OUTPUT_FILE_NAME);
 // 전역 세션 객체
 UserSession userSession;
 UserCollection userCollection;
+BicycleCollection bicycleCollection;
 
 // 함수 선언
 void runProgram();
@@ -55,6 +58,7 @@ void runProgram() {
     userCollection.addNewUser(admin);
 
     while (isRunning && getline(inputFile, line)) {
+        cout<<endl;
         if (line.length() >= 3) {
             mainMenu = line[0] - '0';
             subMenu = line[2] - '0';
@@ -86,13 +90,17 @@ void runProgram() {
                     }
                     break;
 
-                    /*
+                    
                 case 3:
                     if (subMenu == 1 && userSession.getCurrentUser() != nullptr) {
-                        RegisterBicycleUI registerBicycleUI;
+                        RegisterBicycle registerBicycle(&userSession, &bicycleCollection);
+                        RegisterBicycleUI registerBicycleUI(registerBicycle);
+                        registerBicycleUI.startInterface();
+                        registerBicycleUI.registerBicycleUI(input);
                     }
                     break;
 
+                    /*
                 case 4:
                     if (subMenu == 1 && userSession.getCurrentUser() != nullptr) { 
                         RentalBicycleUI rentalBicycleUI;
