@@ -7,7 +7,7 @@ private:
 
 public: 
     UserSession();
-    void signin(User* user);
+    User signin(User* user);
     void signout();
     User* getCurrentUser() const;
 };

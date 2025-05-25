@@ -8,6 +8,7 @@
 #include "UserSession.h"
 #include "SignupUI.h"
 #include "SigninUI.h"
+#include "Signout.h"
 #include "SignoutUI.h"
 #include "RegisterBicycleUI.h"
 #include "RentalBicycleUI.h"
@@ -77,11 +78,15 @@ void runProgram() {
                         signinUI.startInterface();
                         signinUI.signinWithUserInfo(input);
 
-                    } /*else if (subMenu == 2) {
-                        SignoutUI signoutUI;
+                    } else if (subMenu == 2) {
+                        Signout signout(&userSession);
+                        SignoutUI signoutUI(signout);
+                        signoutUI.startInterface();
+                        signoutUI.signoutUI();
                     }
                     break;
 
+                    /*
                 case 3:
                     if (subMenu == 1 && userSession.getCurrentUser() != nullptr) {
                         RegisterBicycleUI registerBicycleUI;

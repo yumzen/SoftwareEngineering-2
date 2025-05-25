@@ -1,7 +1,13 @@
 #pragma once
-#include <iostream>
+#include <string>
+#include "Signout.h"
 using namespace std;
 
 class SignoutUI {
+private:
+    Signout& signout;  
 public:
+    SignoutUI(Signout &signout);
+    void startInterface();
+    void signoutUI(); 
 };
