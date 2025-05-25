@@ -11,5 +11,5 @@ bool Bicycle::getBicycleStatus() {
 }
 
 string Bicycle::getBicycleDetails() const {
-    return "ID: " + id ;
+    return id + " " + productName;
 }

@@ -14,6 +14,7 @@
 #include "RegisterBicycleUI.h"
 #include "RentalBicycle.h"
 #include "RentalBicycleUI.h"
+#include "GetRentalInfo.h"
 #include "GetRentalInfoUI.h"
 #include "UserCollection.h"
 #include "BicycleCollection.h"
@@ -45,10 +46,6 @@ int main() {
 }
 
 void runProgram() {
-
-    // 출력 확인 테스트
-    outputFile << "프로그램 시작" << endl;
-    cout << "프로그램 시작" << endl;
     int mainMenu = 0, subMenu = 0;
     bool isRunning = true;
 
@@ -111,10 +108,11 @@ void runProgram() {
                 
                     }
                     break;
-                    /*
                 case 5:
                     if (subMenu == 1 && userSession.getCurrentUser() != nullptr) {
-                        GetRentalInfoUI getRentalInfoUI;
+                        GetRentalInfo getRentalInfo(&userSession);
+                        GetRentalInfoUI getRentalInfoUI(getRentalInfo);
+                        getRentalInfoUI.startInterface();
                     }
                     break;
 
@@ -124,7 +122,7 @@ void runProgram() {
                         isRunning = false;
                     }
                     break;
-                      */
+                      
                 }
         }
     }
@@ -132,5 +130,4 @@ void runProgram() {
 
 void exitProgram() {
     outputFile << "6.1. 종료" << endl;
-    cout << "프로그램을 종료합니다." << endl;
 }
