@@ -12,6 +12,7 @@
 #include "RegisterBicycleUI.h"
 #include "RentalBicycleUI.h"
 #include "GetRentalInfoUI.h"
+#include "UserCollection.h"
 
 using namespace std;
 
@@ -25,6 +26,7 @@ ofstream outputFile(OUTPUT_FILE_NAME);
 
 // 전역 세션 객체
 UserSession userSession;
+UserCollection userCollection;
 
 // 함수 선언
 void runProgram();
@@ -47,6 +49,10 @@ void runProgram() {
 
     string line, input;
 
+    // 관리자 계정 생성
+    User* admin = new User("admin", "admin", User::ADMIN, "000-0000-0000", {});
+    userCollection.addNewUser(admin);
+
     while (isRunning && getline(inputFile, line)) {
         if (line.length() >= 3) {
             mainMenu = line[0] - '0';
@@ -56,16 +62,22 @@ void runProgram() {
             switch (mainMenu) {
                 case 1:
                     if (subMenu == 1) {
-                        SignupUI signupUI;
+                        Signup signup(&userCollection);
+                        SignupUI signupUI(signup);
+
+                        signupUI.startInterface();
                         signupUI.signupWithUserInfo(input);
                     }
                     break;
 
-/*
                 case 2:
                     if (subMenu == 1) { 
-                        SigninUI signinUI;
-                    } else if (subMenu == 2) {
+                        Signin signin(&userCollection, &userSession);
+                        SigninUI signinUI(signin);
+                        signinUI.startInterface();
+                        signinUI.signinWithUserInfo(input);
+
+                    } /*else if (subMenu == 2) {
                         SignoutUI signoutUI;
                     }
                     break;

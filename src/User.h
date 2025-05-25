@@ -1,5 +1,4 @@
 #pragma once
-
 #include <iostream>
 #include <string>
 #include <vector>
@@ -19,11 +18,9 @@ private:
     vector<Bicycle*> rentalBicycleList;
 
 public:
-    User(string id, string password, Role role, string phoneNumber, vector<Bicycle*> rentalBicycleList);
-
-    string getId();
-    string getPassword();
-    Role getRole();
-    string getPhoneNumber();
-    vector<Bicycle*> getRentalBicycleList();
+    User(string id, string password, Role role, string phoneNumber, vector<Bicycle*> rentalBicycleList = {});
+    string getId() const;
+    string getRole() const;
+    vector<Bicycle*> getRentalBicycleList() const;
+    User createAdminUser();
 };

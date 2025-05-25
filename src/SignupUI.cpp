@@ -1,20 +1,20 @@
 #include "SignupUI.h"
-#include "Signup.h"
+#include <sstream>
+#include <iostream>
 
 using namespace std;
 
+SignupUI::SignupUI(Signup& signup) : signup(signup) {}
+
+void SignupUI::startInterface() {
+    cout << "1.1. 회원가입" << endl;
+}
+
 void SignupUI::signupWithUserInfo(string userInfo) {
     stringstream ss(userInfo);
-
     string id, password, phoneNumber;
-    // 입력 문자열에서 ID, 비밀번호, 전화번호 추출
     ss >> id >> password >> phoneNumber;
 
-    Signup signup;
-    tuple<string, string, string> result = signup.signup(id, password, phoneNumber);
-
-    string message = get<0>(result);
-
-    // 결과 출력 예시
-    cout << id << " " << password << " " << phoneNumber << endl;
+    auto result = signup.signup(id, password, phoneNumber);
+    cout << "> " << get<0>(result) << " " << get<1>(result) << " " << get<2>(result) << endl;
 }

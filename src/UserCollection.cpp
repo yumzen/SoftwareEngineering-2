@@ -1,5 +1,8 @@
 #include "UserCollection.h"
 
+UserCollection::UserCollection() {
+}
+
 void UserCollection::addNewUser(User* user) {
     userList.push_back(user);
 }

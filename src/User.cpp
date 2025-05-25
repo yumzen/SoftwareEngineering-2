@@ -3,22 +3,18 @@
 User::User(string id, string password, Role role, string phoneNumber, vector<Bicycle*> rentalBicycleList)
     : id(id), password(password), role(role), phoneNumber(phoneNumber), rentalBicycleList(rentalBicycleList) {}
 
-string User::getId() {
+string User::getId() const {
     return id;
 }
 
-string User::getPassword() {
-    return password;
+string User::getRole() const {
+    return role == ADMIN ? "admin" : "general";
 }
 
-User::Role User::getRole() {
-    return role;
-}
-
-string User::getPhoneNumber() {
-    return phoneNumber;
-}
-
-vector<Bicycle*> User::getRentalBicycleList() {
+vector<Bicycle*> User::getRentalBicycleList() const {
     return rentalBicycleList;
+}
+
+User User::createAdminUser() {
+    return User("admin", "admin", ADMIN, "010-0000-0000");
 }

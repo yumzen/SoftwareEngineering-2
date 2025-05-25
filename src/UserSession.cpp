@@ -2,9 +2,10 @@
 
 UserSession::UserSession() : currentUser(nullptr) { }
 
-void UserSession::signin(User* user) 
+User UserSession::signin(User* user) 
 {
     currentUser = user;
+    return *currentUser;
 }
 
 void UserSession::signout() 

@@ -2,12 +2,15 @@
 
 #include <string>
 #include <tuple>
-#include <vector>
-#include <iostream>
 
-using namespace std;
+class UserCollection;
 
 class Signup {
+private:
+    UserCollection* userCollection;
+
 public:
-    tuple<string, string, string> signup(string, string, string);
+    Signup(UserCollection* userCollection);
+    std::tuple<std::string, std::string, std::string> signup(
+        std::string id, std::string password, std::string phoneNumber);
 };
