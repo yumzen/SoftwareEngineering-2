@@ -12,6 +12,7 @@
 #include "SignoutUI.h"
 #include "RegisterBicycle.h"
 #include "RegisterBicycleUI.h"
+#include "RentalBicycle.h"
 #include "RentalBicycleUI.h"
 #include "GetRentalInfoUI.h"
 #include "UserCollection.h"
@@ -100,13 +101,17 @@ void runProgram() {
                     }
                     break;
 
-                    /*
+                
                 case 4:
                     if (subMenu == 1 && userSession.getCurrentUser() != nullptr) { 
-                        RentalBicycleUI rentalBicycleUI;
+                        RentalBicycle RentalBicycle(&userSession, &bicycleCollection);
+                        RentalBicycleUI rentalBicycleUI(RentalBicycle);
+                        rentalBicycleUI.startInterface();
+                        rentalBicycleUI.rentalBicycleUI(input);
+                
                     }
                     break;
-
+                    /*
                 case 5:
                     if (subMenu == 1 && userSession.getCurrentUser() != nullptr) {
                         GetRentalInfoUI getRentalInfoUI;

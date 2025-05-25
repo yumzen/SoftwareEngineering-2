@@ -13,5 +13,6 @@ protected:
 public:
     Bicycle(string id, string productName);
     void setBicycleStatus(bool status);
+    bool getBicycleStatus();
     string getBicycleDetails() const;
 };

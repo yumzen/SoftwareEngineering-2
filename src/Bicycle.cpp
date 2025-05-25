@@ -6,6 +6,10 @@ void Bicycle::setBicycleStatus(bool status) {
     bicycleStatus = status;
 }
 
+bool Bicycle::getBicycleStatus() {
+    return bicycleStatus;
+}
+
 string Bicycle::getBicycleDetails() const {
     return "ID: " + id ;
 }
