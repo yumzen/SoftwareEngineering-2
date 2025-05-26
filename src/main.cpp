@@ -39,8 +39,8 @@ void exitProgram();
  * @brief main 함수: 프로그램 진입점
  */
 int main() {
-    //SetConsoleOutputCP(CP_UTF8);
-    //sSetConsoleCP(CP_UTF8);
+    SetConsoleOutputCP(CP_UTF8);
+    sSetConsoleCP(CP_UTF8);
     const string inputFileName = "input.txt";
     ifstream inputFile(inputFileName);
     if (!inputFile.is_open()) {
