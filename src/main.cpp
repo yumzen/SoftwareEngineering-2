@@ -85,7 +85,7 @@ void runProgram(ifstream& inputFile) {
                 else if (subMenu == 2) {
                     SignoutUI signoutUI;
                     signoutUI.startInterface();
-                    signoutUI.signoutUI();
+                    signoutUI.signoutRequest();
                     writeFile("\n");
                 }
                 break;
