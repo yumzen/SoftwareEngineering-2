@@ -4,8 +4,10 @@
 #include "BicycleCollection.h"
 #include "User.h"
 
-RegisterBicycle::RegisterBicycle(UserSession* us, BicycleCollection* bc)
-    : userSession(us), bicycleCollection(bc) {}
+RegisterBicycle::RegisterBicycle() {
+    this->userSession = &UserSession::getInstance();
+    this->bicycleCollection = &BicycleCollection::getInstance();
+}
 
 string RegisterBicycle::registerBicycle(const string& id, const string& name) {
     if (userSession == nullptr || userSession->getCurrentUser() == nullptr) {
@@ -21,5 +23,5 @@ string RegisterBicycle::registerBicycle(const string& id, const string& name) {
     Bicycle* bicycle = new Bicycle(id, name);
     bicycleCollection->addNewBicycle(bicycle);
 
-    return id + " " + name;
+    return id + " " + name + "\n";
 }

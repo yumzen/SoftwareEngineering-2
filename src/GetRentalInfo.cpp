@@ -3,7 +3,9 @@
 #include "User.h"
 #include "Bicycle.h"
 
-GetRentalInfo::GetRentalInfo(UserSession* us) : userSession(us) {}
+GetRentalInfo::GetRentalInfo() {
+    this->userSession = &UserSession::getInstance();
+}
 
 vector<Bicycle*> GetRentalInfo::getRentalBicycleList() {
     if (userSession == nullptr || userSession->getCurrentUser() == nullptr) {

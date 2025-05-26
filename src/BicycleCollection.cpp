@@ -1,7 +1,12 @@
 #include "BicycleCollection.h"
 
-BicycleCollection::BicycleCollection() {
+BicycleCollection::BicycleCollection() {}
+
+BicycleCollection& BicycleCollection::getInstance() {
+    static BicycleCollection instance;
+    return instance;
 }
+
 void BicycleCollection::addNewBicycle(Bicycle* bicycle) {
     bicycleList.push_back(bicycle);
 }

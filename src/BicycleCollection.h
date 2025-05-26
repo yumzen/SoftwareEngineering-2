@@ -8,9 +8,9 @@ using namespace std;
 class BicycleCollection {
 private:
     vector<Bicycle*> bicycleList;
-
-public:
     BicycleCollection();
+public:
+    static BicycleCollection& getInstance();
     void addNewBicycle(Bicycle* bicycle);
     Bicycle* findBicycleById(const string& id);
 };

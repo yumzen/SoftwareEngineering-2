@@ -1,8 +1,8 @@
 #include "Signout.h"
 #include "UserSession.h"
 
-Signout::Signout(UserSession* us) : userSession(us) {
-    this->userSession = us;
+Signout::Signout() {
+    this->userSession = &UserSession::getInstance();
 }
 
 string Signout::signout() {

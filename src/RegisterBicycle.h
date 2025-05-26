@@ -11,6 +11,6 @@ private:
     BicycleCollection* bicycleCollection;
 
 public:
-    RegisterBicycle(UserSession* us, BicycleCollection* bc);
+    RegisterBicycle();
     string registerBicycle(const string& id, const string& name);
 };

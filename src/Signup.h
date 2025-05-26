@@ -10,7 +10,7 @@ private:
     UserCollection* userCollection;
 
 public:
-    Signup(UserCollection* userCollection);
+    Signup();
     std::tuple<std::string, std::string, std::string> signup(
         std::string id, std::string password, std::string phoneNumber);
 };

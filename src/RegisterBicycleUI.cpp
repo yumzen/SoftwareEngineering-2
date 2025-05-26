@@ -4,10 +4,10 @@
 #include <fstream>
 #include "WriteFile.h"
 
-RegisterBicycleUI::RegisterBicycleUI(RegisterBicycle& rb) : registerBicycle(rb) {}
+RegisterBicycleUI::RegisterBicycleUI() : registerBicycle() {}
 
 void RegisterBicycleUI::startInterface() {
-    writeFile("3.1. 자전거 등록");
+    writeFile("3.1. 자전거 등록\n");
 }
 
 void RegisterBicycleUI::registerBicycleUI(const string& input) {
@@ -17,5 +17,5 @@ void RegisterBicycleUI::registerBicycleUI(const string& input) {
 
     string result = registerBicycle.registerBicycle(id, manufacturer);
 
-    writeFile("> "+ result);
+    writeFile("> " + result);
 }

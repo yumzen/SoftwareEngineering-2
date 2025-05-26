@@ -4,9 +4,9 @@ class UserSession
 {
 private: 
     User* currentUser;
-
-public: 
     UserSession();
+public: 
+    static UserSession& getInstance();
     User signin(User* user);
     void signout();
     User* getCurrentUser() const;

@@ -1,15 +1,14 @@
 #include "SignoutUI.h"
-#include "Signout.h"
 #include "UserSession.h"
 #include "WriteFile.h"
 
-SignoutUI::SignoutUI(Signout& signout):signout(signout) {}
+SignoutUI::SignoutUI() : signout() {}
 
 void SignoutUI::startInterface() {
-    writeFile("2.2. 로그아웃");
+    writeFile("2.2. 로그아웃\n");
 }
 
 void SignoutUI::signoutUI() {
     string result = signout.signout();
-    writeFile("> " + result);
+    writeFile("> " + result + "\n");
 }

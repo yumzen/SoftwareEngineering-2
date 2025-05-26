@@ -5,8 +5,8 @@
 
 using namespace std;
 
-Signup::Signup(UserCollection* userCollection) {
-    this->userCollection = userCollection;
+Signup::Signup() {
+    this->userCollection = &UserCollection::getInstance();
 }
 
 tuple<string, string, string> Signup::signup(string id, string password, string phoneNumber) {

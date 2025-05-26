@@ -8,9 +8,10 @@ using namespace std;
 class UserCollection {
 private:
     vector<User*> userList;
+    UserCollection();
 
 public:
-    UserCollection();
+    static UserCollection& getInstance();
     void addNewUser(User* user);
     User* findUserById(const string& id);
     const vector<User*>& getAllUsers() const;

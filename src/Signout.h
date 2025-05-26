@@ -9,6 +9,6 @@ private:
     UserSession* userSession;
 
 public:
-    Signout(UserSession* us);
+    Signout();
     string signout();
 };

@@ -1,14 +1,13 @@
 #include "SigninUI.h"
 #include <sstream>
 #include <iostream>
-#include <sstream>
 using namespace std;
 #include "WriteFile.h"
 
-SigninUI::SigninUI(Signin& signin) : signin(signin) {}
+SigninUI::SigninUI() : signin() {} 
 
 void SigninUI::startInterface() {
-    writeFile("2.1. 로그인");
+    writeFile("2.1. 로그인\n");
 }
 
 void SigninUI::signinWithUserInfo(string userInfo) {
@@ -17,5 +16,5 @@ void SigninUI::signinWithUserInfo(string userInfo) {
     ss >> id >> password;
 
     auto result = signin.signin(id, password);
-    writeFile("> " + get<0>(result) + " " + get<1>(result));
+    writeFile("> " + get<0>(result) + " " + get<1>(result) + "\n");
 }

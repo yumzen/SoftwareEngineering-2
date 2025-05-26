@@ -11,8 +11,6 @@ private:
     BicycleCollection* bicycleCollection;
 
 public:
-    RentalBicycle(UserSession* us, BicycleCollection* bc)
-        : userSession(us), bicycleCollection(bc) {}
-
+    RentalBicycle();
     string rentalBicycle(const string& bicycleId);
 };

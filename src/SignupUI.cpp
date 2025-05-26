@@ -5,10 +5,9 @@
 
 using namespace std;
 
-SignupUI::SignupUI(Signup& signup) : signup(signup) {}
-
+SignupUI::SignupUI() : signup() {}
 void SignupUI::startInterface() {
-    writeFile("1.1. 회원가입");
+    writeFile("1.1. 회원가입\n");
 }
 
 void SignupUI::signupWithUserInfo(string userInfo) {
@@ -17,5 +16,5 @@ void SignupUI::signupWithUserInfo(string userInfo) {
     ss >> id >> password >> phoneNumber;
 
     auto result = signup.signup(id, password, phoneNumber);
-    writeFile("> " + get<0>(result) + " " + get<1>(result) + " " + get<2>(result));
+    writeFile("> " + get<0>(result) + " " + get<1>(result) + " " + get<2>(result) + "\n");
 }

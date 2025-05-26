@@ -2,9 +2,9 @@
 #include "UserCollection.h"
 #include "UserSession.h"
 
-Signin::Signin(UserCollection* uc, UserSession* us) {
-    this->userCollection = uc;
-    this->userSession = us;
+Signin::Signin() {
+    this->userCollection = &UserCollection::getInstance();
+    this->userSession = &UserSession::getInstance();
 }
 
 tuple<string, string> Signin::signin(const string& id, const string& password) {

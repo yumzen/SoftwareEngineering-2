@@ -6,9 +6,10 @@ using namespace std;
 
 class SignoutUI {
 private:
-    Signout& signout;  
+    Signout signout;
+
 public:
-    SignoutUI(Signout &signout);
+    SignoutUI();
     void startInterface();
-    void signoutUI(); 
+    void signoutUI();
 };

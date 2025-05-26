@@ -6,10 +6,10 @@
 
 class SigninUI {
 private:
-    Signin& signin;  // 참조로 받아서 포인터 안 써도 됨
+    Signin signin; 
 
 public:
-    SigninUI(Signin& signin);
+    SigninUI();
     void startInterface();
     void signinWithUserInfo(std::string userInfo);
 };

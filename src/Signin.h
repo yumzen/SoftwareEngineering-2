@@ -14,6 +14,6 @@ private:
     UserSession* userSession;
 
 public:
-    Signin(UserCollection* uc, UserSession* us);
+    Signin();
     tuple<string, string> signin(const string& id, const string& password);
 };

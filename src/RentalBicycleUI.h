@@ -1,17 +1,17 @@
 #pragma once
 #include <iostream>
 #include <string>
-#include <sstream>
-#include <fstream>
+#include "RentalBicycle.h"
 using namespace std;
 
 class RentalBicycle;
 
 class RentalBicycleUI {
 private:
-    RentalBicycle& rentalBicycle;
+    RentalBicycle rentalBicycle; 
+
 public:
-    RentalBicycleUI(RentalBicycle& rb) : rentalBicycle(rb) {}
+    RentalBicycleUI();
     void startInterface();
-    void rentalBicycleUI(std::string bicycleId);
+    void rentalBicycleUI(string bicycleId);
 };

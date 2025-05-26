@@ -1,6 +1,11 @@
 #include "UserSession.h"
 
-UserSession::UserSession() : currentUser(nullptr) { }
+UserSession::UserSession() : currentUser(nullptr) {}
+
+UserSession& UserSession::getInstance() {
+    static UserSession instance;
+    return instance;
+}
 
 User UserSession::signin(User* user) 
 {

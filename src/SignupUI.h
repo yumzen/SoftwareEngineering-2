@@ -1,15 +1,15 @@
 #pragma once
 
 #include <string>
-#include "Signup.h"  // Signup 선언 필요
+#include "Signup.h"
 #include <fstream>
 
 class SignupUI {
 private:
-    Signup& signup;
+    Signup signup;
 
 public:
-    SignupUI(Signup& signup);  // 참조로 받기
+    SignupUI();
     void startInterface();
     void signupWithUserInfo(std::string userInfo);
 };
