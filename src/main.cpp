@@ -19,6 +19,7 @@
 #include "GetRentalInfoUI.h"
 #include "UserCollection.h"
 #include "BicycleCollection.h"
+#include "ExitUI.h"
 #include "WriteFile.h"
 
 using namespace std;
@@ -40,7 +41,7 @@ void exitProgram();
  */
 int main() {
     SetConsoleOutputCP(CP_UTF8);
-    sSetConsoleCP(CP_UTF8);
+    SetConsoleCP(CP_UTF8);
     const string inputFileName = "input.txt";
     ifstream inputFile(inputFileName);
     if (!inputFile.is_open()) {
@@ -117,8 +118,8 @@ void runProgram(ifstream& inputFile) {
 
             case 6: /// 프로그램 종료
                 if (subMenu == 1) {
-                    exitProgram();
-                    isRunning = false;
+                    ExitUI exitUI;
+                    exitUI.exitProgram();
                 }
                 break;
 
@@ -127,8 +128,4 @@ void runProgram(ifstream& inputFile) {
             }
         }
     }
-}
-
-void exitProgram() {
-    writeFile("6.1. 종료");
 }
