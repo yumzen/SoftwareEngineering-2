@@ -12,5 +12,5 @@ private:
 public:
     RegisterBicycleUI();
     void startInterface();
-    void registerBicycleUI(const string& input);
+    void registerWithBicycleInfo(const string& input);
 };

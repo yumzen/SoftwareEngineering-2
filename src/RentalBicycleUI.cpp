@@ -9,7 +9,7 @@ void RentalBicycleUI::startInterface() {
     writeFile("4.1. 자전거 대여\n");
 }
 
-void RentalBicycleUI::rentalBicycleUI(string bicycleId) {
+void RentalBicycleUI::rentalBicycleWithId(string bicycleId) {
     stringstream ss(bicycleId);
     string id;
     ss >> id;

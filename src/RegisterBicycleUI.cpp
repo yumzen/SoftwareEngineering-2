@@ -10,7 +10,7 @@ void RegisterBicycleUI::startInterface() {
     writeFile("3.1. 자전거 등록\n");
 }
 
-void RegisterBicycleUI::registerBicycleUI(const string& input) {
+void RegisterBicycleUI::registerWithBicycleInfo(const string& input) {
     istringstream iss(input);
     string id, manufacturer;
     iss >> id >> manufacturer;

@@ -1,9 +1,6 @@
 /**
  * @file main.cpp
  * @brief 공유 자전거 대여 시스템의 메인 프로그램
- * 
- * 입력 파일을 기반으로 사용자의 명령을 처리하고,
- * 회원가입, 로그인, 로그아웃, 자전거 등록, 대여, 대여 정보 조회 등의 기능을 수행합니다.
  */
 
 #include <iostream>
@@ -30,57 +27,48 @@
 
 using namespace std;
 
-/// @brief 입력 파일 이름 정의
-#define INPUT_FILE_NAME "input.txt"
-ifstream inputFile(INPUT_FILE_NAME);
-
 /**
  * @brief 프로그램 실행 함수
  * 
- * 입력 파일의 명령을 읽어 기능을 수행합니다.
+ * @param inputFile 입력 파일 스트림
  */
-void runProgram();
+void runProgram(ifstream& inputFile);
 
 /**
  * @brief 프로그램 종료 함수
- * 
- * 종료 메시지를 출력 파일에 기록합니다.
  */
 void exitProgram();
 
-
 /**
- * @brief 프로그램 시작점
- * 
- * @return int 실행 결과 코드
+ * @brief main 함수: 프로그램 진입점
  */
 int main() {
-    runProgram();
+    const string inputFileName = "input.txt";
+    ifstream inputFile(inputFileName);
+
+    if (!inputFile.is_open()) {
+        cerr << "입력 파일을 열 수 없습니다: " << inputFileName << endl;
+        return 1;
+    }
+
+    runProgram(inputFile);
     inputFile.close();
     return 0;
 }
 
-void runProgram() {
-    /// @brief 메인 메뉴와 서브 메뉴 변수
+void runProgram(ifstream& inputFile) {
     int mainMenu = 0, subMenu = 0;
-
-    /// @brief 프로그램 실행 여부를 나타내는 변수
     bool isRunning = true;
-
-    /// @brief 입력 파일에서 한 줄씩 읽어 처리하기 위한 변수
     string line, input;
 
-
-    /// @brief 입력 파일에서 명령을 읽어 프로그램 실행
     while (isRunning && getline(inputFile, line)) {
         if (line.length() >= 3) {
             mainMenu = line[0] - '0';
             subMenu = line[2] - '0';
-           if (line.length() > 4) input = line.substr(4, line.length());
+            if (line.length() > 4) input = line.substr(4);
 
             switch (mainMenu) {
-                // 1.1 회원가입
-                case 1:
+                case 1: // 회원가입
                     if (subMenu == 1) {
                         SignupUI signupUI;
                         signupUI.startInterface();
@@ -88,14 +76,13 @@ void runProgram() {
                         writeFile("\n");
                     }
                     break;
-                // 1.1 로그인 및 1.2 로그아웃
-                case 2:
-                    if (subMenu == 1) { 
+
+                case 2: // 로그인 / 로그아웃
+                    if (subMenu == 1) {
                         SigninUI signinUI;
                         signinUI.startInterface();
                         signinUI.signinWithUserInfo(input);
                         writeFile("\n");
-
                     } else if (subMenu == 2) {
                         SignoutUI signoutUI;
                         signoutUI.startInterface();
@@ -104,29 +91,25 @@ void runProgram() {
                     }
                     break;
 
-                // 3.1 자전거 등록
-                case 3:
-                    if (subMenu == 1 ) {
+                case 3: // 자전거 등록
+                    if (subMenu == 1) {
                         RegisterBicycleUI registerBicycleUI;
                         registerBicycleUI.startInterface();
-                        registerBicycleUI.registerBicycleUI(input);
+                        registerBicycleUI.registerWithBicycleInfo(input);
                         writeFile("\n");
                     }
                     break;
 
-                // 4.1 자전거 대여
-                case 4:
-                    if (subMenu == 1) { 
+                case 4: // 자전거 대여
+                    if (subMenu == 1) {
                         RentalBicycleUI rentalBicycleUI;
                         rentalBicycleUI.startInterface();
-                        rentalBicycleUI.rentalBicycleUI(input);
+                        rentalBicycleUI.rentalBicycleWithId(input);
                         writeFile("\n");
-                
                     }
                     break;
 
-                // 5.1 대여 정보 조회
-                case 5:
+                case 5: // 대여 정보 조회
                     if (subMenu == 1) {
                         GetRentalInfoUI getRentalInfoUI;
                         getRentalInfoUI.startInterface();
@@ -134,15 +117,13 @@ void runProgram() {
                     }
                     break;
 
-                // 6.1 프로그램 종료
-                case 6:
+                case 6: // 종료
                     if (subMenu == 1) {
                         exitProgram();
                         isRunning = false;
                     }
                     break;
-                      
-                }
+            }
         }
     }
 }

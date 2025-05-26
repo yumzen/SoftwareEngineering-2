@@ -13,5 +13,5 @@ private:
 public:
     RentalBicycleUI();
     void startInterface();
-    void rentalBicycleUI(string bicycleId);
+    void rentalBicycleWithId(string bicycleId);
 };
