@@ -1,12 +1,8 @@
-/**
- * @file main.cpp
- * @brief 공유 자전거 대여 시스템의 메인 프로그램
- */
-
 #include <iostream>
 #include <fstream>
 #include <string>
 #include <vector>
+//#include <windows.h>
 #include <tuple>
 
 #include "User.h"
@@ -43,9 +39,10 @@ void exitProgram();
  * @brief main 함수: 프로그램 진입점
  */
 int main() {
+    //SetConsoleOutputCP(CP_UTF8);
+    //sSetConsoleCP(CP_UTF8);
     const string inputFileName = "input.txt";
     ifstream inputFile(inputFileName);
-
     if (!inputFile.is_open()) {
         cerr << "입력 파일을 열 수 없습니다: " << inputFileName << endl;
         return 1;
@@ -68,61 +65,65 @@ void runProgram(ifstream& inputFile) {
             if (line.length() > 4) input = line.substr(4);
 
             switch (mainMenu) {
-                case 1: // 회원가입
-                    if (subMenu == 1) {
-                        SignupUI signupUI;
-                        signupUI.startInterface();
-                        signupUI.signupWithUserInfo(input);
-                        writeFile("\n");
-                    }
-                    break;
+            case 1: /// 회원가입
+                if (subMenu == 1) {
+                    SignupUI signupUI;
+                    signupUI.startInterface();
+                    signupUI.signupWithUserInfo(input);
+                    writeFile("\n");
+                }
+                break;
 
-                case 2: // 로그인 / 로그아웃
-                    if (subMenu == 1) {
-                        SigninUI signinUI;
-                        signinUI.startInterface();
-                        signinUI.signinWithUserInfo(input);
-                        writeFile("\n");
-                    } else if (subMenu == 2) {
-                        SignoutUI signoutUI;
-                        signoutUI.startInterface();
-                        signoutUI.signoutUI();
-                        writeFile("\n");
-                    }
-                    break;
+            case 2: /// 로그인/로그아웃
+                if (subMenu == 1) {
+                    SigninUI signinUI;
+                    signinUI.startInterface();
+                    signinUI.signinWithUserInfo(input);
+                    writeFile("\n");
+                }
+                else if (subMenu == 2) {
+                    SignoutUI signoutUI;
+                    signoutUI.startInterface();
+                    signoutUI.signoutUI();
+                    writeFile("\n");
+                }
+                break;
 
-                case 3: // 자전거 등록
-                    if (subMenu == 1) {
-                        RegisterBicycleUI registerBicycleUI;
-                        registerBicycleUI.startInterface();
-                        registerBicycleUI.registerWithBicycleInfo(input);
-                        writeFile("\n");
-                    }
-                    break;
+            case 3: /// 자전거 등록
+                if (subMenu == 1) {
+                    RegisterBicycleUI registerBicycleUI;
+                    registerBicycleUI.startInterface();
+                    registerBicycleUI.registerWithBicycleInfo(input);
+                    writeFile("\n");
+                }
+                break;
 
-                case 4: // 자전거 대여
-                    if (subMenu == 1) {
-                        RentalBicycleUI rentalBicycleUI;
-                        rentalBicycleUI.startInterface();
-                        rentalBicycleUI.rentalBicycleWithId(input);
-                        writeFile("\n");
-                    }
-                    break;
+            case 4: /// 자전거 대여
+                if (subMenu == 1) {
+                    RentalBicycleUI rentalBicycleUI;
+                    rentalBicycleUI.startInterface();
+                    rentalBicycleUI.rentalBicycleWithId(input);
+                    writeFile("\n");
+                }
+                break;
 
-                case 5: // 대여 정보 조회
-                    if (subMenu == 1) {
-                        GetRentalInfoUI getRentalInfoUI;
-                        getRentalInfoUI.startInterface();
-                        writeFile("\n");
-                    }
-                    break;
+            case 5: /// 대여 자전거 정보
+                if (subMenu == 1) {
+                    GetRentalInfoUI getRentalInfoUI;
+                    getRentalInfoUI.startInterface();
+                    writeFile("\n");
+                }
+                break;
 
-                case 6: // 종료
-                    if (subMenu == 1) {
-                        exitProgram();
-                        isRunning = false;
-                    }
-                    break;
+            case 6: /// 프로그램 종료
+                if (subMenu == 1) {
+                    exitProgram();
+                    isRunning = false;
+                }
+                break;
+
+            default:
+                break;
             }
         }
     }
