@@ -20,7 +20,7 @@ void SignoutUI::startInterface() {
  * @brief 로그아웃 기능을 수행하는 함수
  * 현재 로그인된 사용자를 로그아웃하고 결과 메시지를 출력
  */
-void SignoutUI::signoutUI() {
+void SignoutUI::signoutRequest() {
     string result = signout.signout();
     writeFile("> " + result + "\n");
 }

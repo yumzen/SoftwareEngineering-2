@@ -15,5 +15,5 @@ private:
 public:
     SignoutUI(); /// 생성자
     void startInterface(); /// 로그아웃 인터페이스를 시작하는 함수
-    void signoutUI(); /// 로그아웃 기능을 수행하는 함수
+    void signoutRequest(); /// 로그아웃 기능을 수행하는 함수
 };
